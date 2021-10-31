@@ -1,3 +1,21 @@
 {
-    
+    "users": [
+        {
+            "userId": 1,
+            "name": "Yasmine",
+            "email": "raya000@naver.com"
+        }
+    ],
+    "posts": [
+        {
+            "postId": 1,
+            "title": "첫 번째 포스트",
+            "contents": "오늘은 자바스크립트 ES6+에 대해서 포스팅 해보도록 하겠습니다."
+        },
+        {
+            "postId": 2,
+            "title": "두 번째 포스트",
+            "contents": "오늘은 nodejs에 대해서 포스팅 해보도록 하겠습니다."
+        }
+    ]
 }
