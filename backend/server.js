@@ -17,7 +17,7 @@ app.use('/posts', async(req,res) => {
         // db에서 조회해오고, 값이 있으면 그대로 리턴, 없으면 새로 삽입 후 삽입한 컬럼을 리턴;
         console.log(`GET /posts`)
         const { data }  = await db.get(`/posts`)//res.body.postId
-        res.json({postdata: `${data}`})
+        res.json({postdata: data})
         console.log(data)
 
 

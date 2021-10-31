@@ -1,0 +1,57 @@
+.set-font {
+    font-family: AppleSDGothic;
+}
+.post-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+.post-title:hover {
+    text-decoration: underline;
+}
+.post-content {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+}
+.wrap-post-content {
+    margin-bottom: 10px;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 20vh;
+    max-height: 20vh;
+    cursor: pointer;
+    line-height: 20px;
+}
+.hr-divider{
+    border: 1px solid rgba(128, 128, 128, 0.212);
+    height: 0;
+    width: 100%;
+}
+/* nav */
+.nav-area {
+    width: 30vw;
+    height: 100vh;
+    background-color: black;
+}
+.wrap-main-area {
+    display: flex;
+}
+
+.header-area{
+    height: 10%;
+}
+.wrap-post-items {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+}
+.posts-items-align {
+    display: flex;
+    justify-content: center;
+}
+.align-bodytext {
+    text-align: left;
+}
