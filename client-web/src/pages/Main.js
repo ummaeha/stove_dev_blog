@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom"
+import axios from 'axios'
 import HeaderText from "../components/Typography/HeaderText"
 import BodyText from "../components/Typography/BodyText"
 import '../reset.css'
@@ -9,10 +10,10 @@ const Main = () => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        window
-        .fetch('http://localhost:4000/posts')
-        .then(res => res.json())
-        .then(data => setPosts(data.postdata.reverse()))
+        axios
+        .get('http://localhost:4000/posts')
+        .then(res => res)
+        .then(data => setPosts(data.data.postdata.reverse()))
     }, [])
     // console.log(posts)
     // console.log(typeof(posts.postdata))
@@ -27,17 +28,20 @@ const Main = () => {
                 </nav>
                 <div className="posts-items-align">
                     <article className="wrap-post-items">
-                        <div className="align-bodytext"><BodyText fontsize={20} text={`전체글(${posts.length})`}/></div>
+                        
+                        <div className="align-bodytext">
+                            <BodyText fontsize={20} text={`전체글(${posts.length})`}/>
+                            <Link to={'posts/create'} className="add-post-btn"> + Add POST</Link>
+                        </div>
                         {posts != null && posts.map((content, i) => {
-                            return <Link to={`${content.postId}`} className="wrap-post-content" key={i}>
+                            return <Link to={`post/${content.postId}`} className="wrap-post-content" key={i}>
                                         <hr className="hr-divider"/>
                                         <span className="post-title">{content.title}</span>
                                         <span className="post-content">{content.contents}</span>
-                                    </Link>
-                                    
-                                    
+                                    </Link>  
                         })}
                         <hr className="hr-divider"/>
+                        <button className="more-button">목록 더보기</button>
                     </article>
                 </div>
             </section>
