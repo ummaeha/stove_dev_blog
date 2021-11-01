@@ -53,5 +53,18 @@
     justify-content: center;
 }
 .align-bodytext {
-    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+.more-button {
+    width: fit-content;
+    padding: 10px 20px;
+    text-align: center;
+    margin: 100px auto 0 auto ;
+    cursor: pointer;
+}
+.add-post-btn {
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 5px;
 }

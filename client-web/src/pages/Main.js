@@ -31,7 +31,7 @@ const Main = () => {
                         
                         <div className="align-bodytext">
                             <BodyText fontsize={20} text={`전체글(${posts.length})`}/>
-                            <Link to={'posts/create'} className="add-post-btn"> + Add POST</Link>
+                            <Link to={'create'} className="add-post-btn"> + Add POST</Link>
                         </div>
                         {posts != null && posts.map((content, i) => {
                             return <Link to={`post/${content.postId}`} className="wrap-post-content" key={i}>
