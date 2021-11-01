@@ -45,7 +45,7 @@ const Create = () => {
             <HeaderText text="내용"/>
             <textarea name="description" className="contents" cols="30" rows="10"></textarea>
             <button onClick={(e) => onsubmit(e)}>글 쓰기 완료</button>
-            <Thread/>
+            {Thread(2)}
         </div>
     )
 }

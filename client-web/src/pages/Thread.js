@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 import server from "../apis/server"
 import BodyText from "../components/Typography/BodyText"
 
 const Thread = (postId) => {
     const [threadList, setThreadList] = useState([])
-
+    console.log(postId);
     useEffect(() => {
-        server
-        .get(`/thread`)
+        axios
+        .get(`http://localhost:4000/thread/${postId}`)
+        // .get(`http://localhost:4000/thread`)
         .then(res => res)
         .then(data => setThreadList(data.data.threadData))
     }, [])

@@ -4,7 +4,7 @@ import Thread from './Thread';
 const Post = () => {
     return (
         <div>
-            <Thread postId={1}/>
+            {Thread(1)}
         </div>
     )
 }
