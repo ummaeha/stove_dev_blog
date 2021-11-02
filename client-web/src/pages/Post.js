@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios';
 import server from "../apis/server"
 import HeaderText from "../components/Typography/HeaderText"
 import BodyText from "../components/Typography/BodyText"

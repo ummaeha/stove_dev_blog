@@ -7,7 +7,6 @@ import './Create.css'
 const Create = (props) => {
     const [postDetail, setPostDetail] = useState({})
 
-
     const onsubmit = (e) => {
         e.preventDefault();
 
