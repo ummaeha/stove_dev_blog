@@ -31,10 +31,10 @@ const Main = () => {
                         
                         <div className="align-bodytext">
                             <BodyText fontsize={20} text={`전체글(${posts.length})`}/>
-                            <Link to={'create'} className="add-post-btn"> + Add POST</Link>
+                            <Link to={'posts'} className="add-post-btn"> + Add POST</Link>
                         </div>
                         {posts != null && posts.map((content, i) => {
-                            return <Link to={`post/${content.postId}`} className="wrap-post-content" key={i}>
+                            return <Link to={`posts/${content.postId}`} className="wrap-post-content" key={i}>
                                         <hr className="hr-divider"/>
                                         <span className="post-title">{content.title}</span>
                                         <span className="post-content">{content.contents}</span>

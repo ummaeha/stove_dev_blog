@@ -3,19 +3,17 @@ import axios from 'axios'
 import server from "../apis/server"
 import BodyText from "../components/Typography/BodyText"
 
-const Thread = (postId) => {
+const Thread = (props) => {
     const [threadList, setThreadList] = useState([])
-    console.log(postId);
+
     useEffect(() => {
         axios
-        .get(`http://localhost:4000/thread/${postId}`)
-        // .get(`http://localhost:4000/thread`)
+        .get(`http://localhost:4000/thread/${props.postId}`)
         .then(res => res)
         .then(data => setThreadList(data.data.threadData))
     }, [])
     return (
         <div>
-            {console.log(threadList)}
             {threadList.map((thread) => {
                 return <div>{thread.threadContents}</div>
             })}

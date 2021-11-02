@@ -3,8 +3,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import history from "./history";
 import Main from "./pages/Main";
 import Create from "./pages/Create";
-// import Post from "./pages/Create";
-
+import Post from "./pages/Post";
 
 
 import './App.css';
@@ -19,7 +18,7 @@ function App() {
                       <div className="main-body">
                           <Route path="/" exact component={Main} />
                           <Route path="/posts" exact component={Create} />
-                          {/* <Route path="/post:postId" exact component={Create} /> */}
+                          <Route path="/posts/:postid" exact component={Post} />
                       </div>
                   </Switch>
               </div>

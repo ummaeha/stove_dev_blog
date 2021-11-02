@@ -4,6 +4,7 @@ import server from "../apis/server"
 import HeaderText from "../components/Typography/HeaderText"
 import BodyText from "../components/Typography/BodyText"
 import Thread from './Thread';
+import Post from './Post';
 import './Create.css'
 
 const Create = () => {
@@ -39,13 +40,13 @@ const Create = () => {
     }
     return (
         <div>
-            {console.log(postDetail)}
             <HeaderText text="제목"/>
             <input type="text" className="title" />
             <HeaderText text="내용"/>
             <textarea name="description" className="contents" cols="30" rows="10"></textarea>
             <button onClick={(e) => onsubmit(e)}>글 쓰기 완료</button>
-            {Thread(2)}
+            <Thread postId={2} />
+            <Post postId={2} />
         </div>
     )
 }

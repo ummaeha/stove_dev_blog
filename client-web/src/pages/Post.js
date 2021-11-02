@@ -1,10 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
+import server from "../apis/server"
+import HeaderText from "../components/Typography/HeaderText"
+import BodyText from "../components/Typography/BodyText"
 import Thread from './Thread';
 
-const Post = () => {
+const Post = (props) => {
+    const [postDetailData, setPostDetailData] = useState([])
+    const [postIdFromUrl, setPostIdFromUrl] = useState(props.match.params.postid)
+    
+    useEffect(() => {
+        axios
+        .get(`http://localhost:4000/posts/${postIdFromUrl}`) //  TO DO: key value로 받으면 되겠다. -> 고민해보기
+        .then(res => res)
+        .then(data => setPostDetailData(data.data.postDetail[0]))
+    }, [])
+
     return (
         <div>
-            {Thread(1)}
+            <HeaderText text={postDetailData.title}/>
+            <BodyText size={16} text={postDetailData.contents}/>
+            <HeaderText text="댓글"/>
+            <Thread postId={2} />
         </div>
     )
 }
