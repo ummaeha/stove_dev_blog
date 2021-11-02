@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom"
-import axios from 'axios'
+import server from "../apis/server"
 import HeaderText from "../components/Typography/HeaderText"
 import BodyText from "../components/Typography/BodyText"
 import '../reset.css'
@@ -10,13 +10,12 @@ const Main = (props) => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        axios
-        .get('http://localhost:4000/posts')
+        server
+        .get('/posts')
         .then(res => res)
         .then(data => setPosts(data.data.postdata.reverse()))
     }, [])
-    // console.log(posts)
-    // console.log(typeof(posts.postdata))
+
     return (
         <div className="set-font">
             <header className="header-area">

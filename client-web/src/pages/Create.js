@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios';
+import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import server from "../apis/server"
 import HeaderText from "../components/Typography/HeaderText"
 import './Create.css'
@@ -31,13 +31,11 @@ const Create = (props) => {
     }
     return (
         <div>
-            {console.log(postDetail)}
-            {console.log(props.match)}
             <HeaderText text="제목"/>
             <input type="text" className="title" />
             <HeaderText text="내용"/>
             <textarea name="description" className="contents" cols="30" rows="10"></textarea>
-            <button onClick={(e) => onsubmit(e)}>글 쓰기 완료</button>
+            <button onClick={(e) => onsubmit(e)}><Link to={'/'}>글 쓰기 완료</Link></button>
         </div>
     )
 }
