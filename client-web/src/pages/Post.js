@@ -7,8 +7,9 @@ import Thread from './Thread';
 
 const Post = (props) => {
     const [postDetailData, setPostDetailData] = useState([])
-    const [postIdFromUrl, setPostIdFromUrl] = useState(props.match.params.postid)
-    
+    const [postIdFromUrl, setPostIddFromUrl] = useState(props.match.params.postId)
+    // {localStorage.getItem("id")}
+
     useEffect(() => {
         axios
         .get(`http://localhost:4000/posts/${postIdFromUrl}`) //  TO DO: key value로 받으면 되겠다. -> 고민해보기
@@ -21,7 +22,7 @@ const Post = (props) => {
             <HeaderText text={postDetailData.title}/>
             <BodyText size={16} text={postDetailData.contents}/>
             <HeaderText text="댓글"/>
-            <Thread postId={2} />
+            <Thread postId={props.match.params.postId} />
         </div>
     )
 }

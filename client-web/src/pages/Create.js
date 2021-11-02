@@ -3,11 +3,9 @@ import axios from 'axios';
 import server from "../apis/server"
 import HeaderText from "../components/Typography/HeaderText"
 import BodyText from "../components/Typography/BodyText"
-import Thread from './Thread';
-import Post from './Post';
 import './Create.css'
 
-const Create = () => {
+const Create = (props) => {
     const [postDetail, setPostDetail] = useState({})
 
     // useEffect(() => {
@@ -27,26 +25,34 @@ const Create = () => {
         let $title = document.querySelector('.title').value
         let $contents = document.querySelector('.contents').value
         if ($title === "" || $contents === "") {
-            alert("All the fields are mandatory!");
+            alert("제목과 내용을 모두 작성하셔야 글쓰기가 가능합니다!");
             return;
         }
         // const userId = localStorage.getItem("id") ? localStorage.getItem("id") : 0
         // const article = {userId: `${userId}`, title: `${$title}`, contents: `${$contents}`}
-        const article = {title: `${$title}`, contents: `${$contents}`}
+        
+        const postInitalData = {
+            userId: `${localStorage.getItem("id")}`,
+            title: `${$title}`,
+            contents: `${$contents}`,
+            // id
+        }
+        
+        // const article = {title: `${$title}`, contents: `${$contents}`}
         server
-        .post('/posts', article)
+        .post('/posts', postInitalData)
         .then(res => res)
         .then((data) => setPostDetail(data))
     }
     return (
         <div>
+            {console.log(postDetail)}
+            {console.log(props.match)}
             <HeaderText text="제목"/>
             <input type="text" className="title" />
             <HeaderText text="내용"/>
             <textarea name="description" className="contents" cols="30" rows="10"></textarea>
             <button onClick={(e) => onsubmit(e)}>글 쓰기 완료</button>
-            <Thread postId={2} />
-            <Post postId={2} />
         </div>
     )
 }

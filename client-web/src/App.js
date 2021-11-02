@@ -18,7 +18,7 @@ function App() {
                       <div className="main-body">
                           <Route path="/" exact component={Main} />
                           <Route path="/posts" exact component={Create} />
-                          <Route path="/posts/:postid" exact component={Post} />
+                          <Route path="/posts/:postId" exact component={Post} />
                       </div>
                   </Switch>
               </div>

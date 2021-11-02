@@ -6,7 +6,7 @@ import BodyText from "../components/Typography/BodyText"
 import '../reset.css'
 import './Main.css'
 
-const Main = () => {
+const Main = (props) => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
@@ -34,7 +34,7 @@ const Main = () => {
                             <Link to={'posts'} className="add-post-btn"> + Add POST</Link>
                         </div>
                         {posts != null && posts.map((content, i) => {
-                            return <Link to={`posts/${content.postId}`} className="wrap-post-content" key={i}>
+                            return <Link to={`posts/${content.id}`} className="wrap-post-content" key={i}>
                                         <hr className="hr-divider"/>
                                         <span className="post-title">{content.title}</span>
                                         <span className="post-content">{content.contents}</span>

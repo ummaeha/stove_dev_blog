@@ -14,9 +14,10 @@ const Thread = (props) => {
     }, [])
     return (
         <div>
-            {threadList.map((thread) => {
+            {threadList && threadList.map((thread) => {
                 return <div>{thread.threadContents}</div>
             })}
+            {(!threadList.length) && <div>댓글이 없습니다</div>}
         </div>
     )
 }
