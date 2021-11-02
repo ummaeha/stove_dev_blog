@@ -19,7 +19,6 @@ const Post = (props) => {
         <div>
             <HeaderText text={postDetailData.title}/>
             <BodyText size={16} text={postDetailData.contents}/>
-            <HeaderText text="댓글"/>
             <Thread postId={props.match.params.postId} />
         </div>
     )

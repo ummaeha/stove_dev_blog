@@ -50,9 +50,18 @@ app.post('/posts', async (req, res) => {
 app.get('/thread/:id', async(req,res) => {
     try {
         console.log(`GET /thread/${req.params.id}`)
-        console.log(req.params);
         const { data } = await db.get(`/thread?postId=${req.params.id}`)
         res.status("201").json({threadData: data}).end() 
+    } catch (err) {
+        console.log(err)
+        res.status("400").json(err).end()
+    }
+})
+app.post('/thread/:id', async(req,res) => {
+    try {
+        console.log(`POST /thread/${req.params.id}`)
+        const { data } = await db.post(`/thread?postId=${req.params.id}`, req.body)
+        res.status("201").json({newThreadData: data}).end() 
     } catch (err) {
         console.log(err)
         res.status("400").json(err).end()

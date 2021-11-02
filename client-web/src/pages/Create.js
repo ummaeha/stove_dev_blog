@@ -35,7 +35,7 @@ const Create = (props) => {
             <input type="text" className="title" />
             <HeaderText text="내용"/>
             <textarea name="description" className="contents" cols="30" rows="10"></textarea>
-            <button onClick={(e) => onsubmit(e)}><Link to={'/'}>글 쓰기 완료</Link></button>
+            <button onClick={(e) => onsubmit(e)}><Link to={'/'}>글 쓰기 완료 </Link></button>
         </div>
     )
 }
