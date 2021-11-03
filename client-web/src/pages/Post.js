@@ -17,21 +17,6 @@ const Post = (props) => {
         .then(res => res)
         .then(data => setPostDetailData(data.data.postDetail[0]))
 
-        // let $title = document.querySelector('.title').value
-        // let $contents = document.querySelector('.contents').value
-
-        // const postInitalData = {
-        //     userId: `${localStorage.getItem("id")}`,
-        //     title: `${$title}`,
-        //     contents: `${$contents}`,
-        //     timeStamp: getDateString()
-        //     // id autoincrease
-        // }
-
-        // server
-        // .put(`/posts/${postIdFromUrl}`, postInitalData)
-        // .then(res => res)
-        // .then(data => setPostIdFromUrl(data.data))
     }, [])
 
     const saveEdit = (e) => {
@@ -57,13 +42,32 @@ const Post = (props) => {
     const handleContentChange = (e) => {
         setTextContent(e.target.value)
     }
+
+    const saveChanges = (e, editMode) => {
+        setEditMode(editMode)
+        if(!editMode) { //true
+
+            const postInitalData = {
+                // userId: `${localStorage.getItem("id")}`,
+                title: `${textTitle}`,
+                contents: `${textContent}`,
+                timeStamp: getDateString(),
+                postId: `${postIdFromUrl}`
+                // id autoincrease
+            }
+
+            server
+            .put(`/posts`, { ...postInitalData})
+            .then(res => res)
+            .then(data => setPostIdFromUrl(data.data))
+        }
+    }
     return (
         <div>
-            {console.log(postDetailData)}
+            {/* {console.log(postDetailData)} */}
             <section className="wrap-real-post common-left">
                 <div className="wrap-post-info">
                     <div>
-                        {console.log(textTitle)}
                         {editMode ? 
                         <input type="text" placeholder={textTitle} value={textTitle} onChange={(e) => handleTitleChange(e)} />
                         : <h3 className="header-font-style titleText">{textTitle == '' ? postDetailData.title : textTitle}</h3>
@@ -71,7 +75,7 @@ const Post = (props) => {
                     </div>
                     <div className="post-info">
                         {postDetailData.timeStamp ? <span>{postDetailData.timeStamp}</span> : <span>NO TIMESTAMP</span>}
-                        <button onClick={() => setEditMode(!editMode)}>{editMode ? 'SAVE Post' : 'EDIT POST'}</button>
+                        <button onClick={(e) => saveChanges(e,!editMode)}>{editMode ? 'SAVE POST' : 'EDIT POST'}</button>
                     </div>
                 </div>
                 <hr className="hr-divider"/>

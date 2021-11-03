@@ -85,6 +85,28 @@
       "title": "야호",
       "contents": "호랑이띠",
       "id": 12
+    },
+    {
+      "userId": "1",
+      "title": "새 게시물 씁니다",
+      "contents": "써요!!",
+      "timeStamp": "2021.11.03  20:6",
+      "id": 13
+    },
+    {
+      "userId": "1",
+      "title": "포스트 ",
+      "contents": "포포포오옹스트",
+      "timeStamp": "2021.11.03  21:49",
+      "id": 14
+    },
+    {
+      "userId": "1",
+      "title": "rebecca",
+      "contents": "지금 어디 있든 ~",
+      "timeStamp": "2021.11.04  2:12",
+      "id": 15,
+      "postId": "15"
     }
   ],
   "thread": [
@@ -231,6 +253,30 @@
       "threadContents": "날짜 시간도 나오게 또 수정",
       "timeStamp": "2021. 11. 02  19:48",
       "id": 24
+    },
+    {
+      "postId": "13",
+      "threadContents": "타임 스탬프가 잘 동작하네요 굳굳!",
+      "timeStamp": "2021.11.02  22:45",
+      "id": 25
+    },
+    {
+      "postId": "13",
+      "threadContents": "타임 스탬프가 잘 동작하네요 굳굳!",
+      "timeStamp": "2021.11.02  22:45",
+      "id": 26
+    },
+    {
+      "postId": "7",
+      "threadContents": "쓰레드도 한 번 써보겠습니다.",
+      "timeStamp": "2021.11.03  0:23",
+      "id": 27
+    },
+    {
+      "postId": "14",
+      "threadContents": "뮤지컬 보러가고 싶습니다.",
+      "timeStamp": "2021.11.03  23:59",
+      "id": 28
     }
   ]
 }

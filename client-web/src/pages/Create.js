@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import server from "../apis/server"
 import HeaderText from "../components/Typography/HeaderText"
+import { getDateString, getYear, getMonthIndex, getDate } from "../components/Date/getDateString"
 import './Create.css'
 
 const Create = (props) => {
@@ -21,6 +22,7 @@ const Create = (props) => {
             userId: `${localStorage.getItem("id")}`,
             title: `${$title}`,
             contents: `${$contents}`,
+            timeStamp: getDateString()
             // id autoincrease
         }
         

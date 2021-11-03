@@ -4,8 +4,6 @@ import history from "./history";
 import Main from "./pages/Main";
 import Create from "./pages/Create";
 import Post from "./pages/Post";
-
-
 import './App.css';
 
 function App() {

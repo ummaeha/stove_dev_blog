@@ -1,0 +1,22 @@
+.common-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+}
+.hr-divider{
+    border: 1px solid rgba(128, 128, 128, 0.212);
+    height: 0;
+    width: 100%;
+}
+.no-thread-msg {
+    margin-bottom: 20px;
+}
+.post-timestamp {
+    color:gray;
+    font-size: 12px;
+}
+.common-left > div {
+    width: 100%;
+    text-align: left;
+}

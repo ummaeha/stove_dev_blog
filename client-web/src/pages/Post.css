@@ -1,0 +1,33 @@
+.common-left {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    width: 70%;
+}
+.wrap-real-post {
+    margin-bottom: 20px;
+}
+.content-box {
+    height: 40vh;
+    /* border: 1px solid black; */
+    /* padding:10px; */
+    width: 100%;
+    text-align: left;
+}
+.hr-divider{
+    border: 1px solid rgba(128, 128, 128, 0.212);
+    height: 0;
+    width: 100%;
+}
+.wrap-post-info {
+    width: 100%;
+}
+.post-info {
+    display: flex;
+    justify-content: space-between;
+}
+.header-font-style {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}

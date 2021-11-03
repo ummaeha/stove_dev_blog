@@ -1,6 +1,3 @@
-.set-font {
-    font-family: AppleSDGothic;
-}
 .post-title {
     font-size: 20px;
     font-weight: 600;
@@ -28,6 +25,12 @@
     border: 1px solid rgba(128, 128, 128, 0.212);
     height: 0;
     width: 100%;
+}
+.wrap-post-box {
+    display: flex;
+}
+.post-checkbox {
+    margin-right: 10px;
 }
 /* nav */
 .nav-area {
@@ -63,8 +66,12 @@
     margin: 100px auto 0 auto ;
     cursor: pointer;
 }
-.add-post-btn {
+.common-post-btn {
     border: 1px solid black;
     padding: 5px 10px;
     border-radius: 5px;
+    height: 30px;
+}
+.common-post-btn:first-child {
+    margin-right: 10px;
 }
