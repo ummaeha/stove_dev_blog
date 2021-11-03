@@ -31,7 +31,7 @@ const Main = (props) => {
             id: `${postId}`
         }
         server
-        .delete(`/posts`, {...deleteDate})
+        .delete(`/posts`, {body:{...deleteDate}})
         .then(res => res)
         .then(data => setPosts(data.data.deletedData))
         // window

@@ -61,7 +61,7 @@ app.put('/posts', async (req, res) => {
         console.log(`PATCH /posts/${req.body.id}`)
         const { data } = await db.patch(`/posts/${req.body.id}`, req.body)
         // res.send({data})
-        console.log(req.body);
+        console.log(data);
         res.status("200").json(data).end()
     } catch(err) {
         console.log(err.message)

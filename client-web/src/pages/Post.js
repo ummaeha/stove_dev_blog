@@ -57,7 +57,6 @@ const Post = (props) => {
                 server
                 .put(`/posts`, { ...postInitalData})
                 .then(res => res)
-                .then(data => setPostIdFromUrl(data.data))
             }
         }
 
