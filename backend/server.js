@@ -56,9 +56,9 @@ app.post('/posts', async (req, res) => {
     }
 })
 app.put('/posts', async (req, res) => {
-    console.log(req);
+    // console.log(req);
     try {
-        console.log(`PATCH /posts/`)
+        console.log(`PATCH /posts/${req.body.id}`)
         const { data } = await db.patch(`/posts/${req.body.id}`, req.body)
         // res.send({data})
         console.log(req.body);
@@ -70,9 +70,9 @@ app.put('/posts', async (req, res) => {
 })
 app.delete('/posts', async (req, res) => {
     try {
-        console.log(`DELETE /posts/${req.body.postId}`)
-        const { data } = await db.delete(`/posts/${req.body.postId}`)
-        
+        console.log(`DELETE /posts/${req.body.id}`)
+        await db.delete(`/posts/${req.body.id}`)
+        const { data } = await db.get('/posts')
         // let [filteredData] =data.filter((datum) => {
         //     return datum.id != `${req.params.id}`
         // })

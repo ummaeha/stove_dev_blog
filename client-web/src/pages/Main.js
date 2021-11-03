@@ -27,11 +27,13 @@ const Main = (props) => {
     }
     const deletePost = (e, postId) => {
         e.preventDefault();
-
-        // server
-        // .delete(`/posts`,{postId: `${postId}`})
-        // .then(res => res)
-        // .then(data => setPosts(data.data))
+        const deleteDate = {
+            id: `${postId}`
+        }
+        server
+        .delete(`/posts`, {...deleteDate})
+        .then(res => res)
+        .then(data => setPosts(data.data.deletedData))
         // window
         // .fetch(`http://localhost:4000/posts/${postId}`,  {
         //     method: "DELETE"

@@ -33,7 +33,7 @@ const ThreadWrite = (props) => {
         
     return (
         <div>
-            {console.log(newThread)}
+            {/* {console.log(newThread)} */}
             <textarea type="text" placeholder="여러분의 소중한 댓글을 입력해주세요" className="threadContentBox thread-textarea"/><button onClick={(e) => onsubmitThread(e)} className="make-thread-btn"> 댓글 달기 </button>
         </div>
     )
