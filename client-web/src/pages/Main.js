@@ -28,20 +28,9 @@ const Main = (props) => {
     const deletePost = (e, postId) => {
         e.preventDefault();
 
-        // axios({
-        //     method: 'delete', 
-        //     url: `http://localhost:4000/posts/${postId}`, 
-        //     // data: {
-        //     //     id: `${postId}`
-        //     // },
-        //     headers: {
-        //         "Content-Type": "application/x-www-form-urlencoded"
-        //     },
-        //     withCredentials: false
-        // }) 
-        server
-        .delete(`/posts/${postId}`,{})
-        .then(res => res)
+        // server
+        // .delete(`/posts`,{postId: `${postId}`})
+        // .then(res => res)
         // .then(data => setPosts(data.data))
         // window
         // .fetch(`http://localhost:4000/posts/${postId}`,  {
@@ -88,7 +77,7 @@ const Main = (props) => {
                                             <span className="post-content">{content.contents}</span>
                                         </Link>  
                                     </div>
-                                    <button onClick={(e) => deletePost(e, `${content.id}`)}>PUT</button>
+                                    <button onClick={(e) => deletePost(e, `${content.id}`)}>DELETE</button>
                                     </div>
                         })}
                         <hr className="hr-divider"/>

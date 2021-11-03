@@ -56,10 +56,10 @@ app.post('/posts', async (req, res) => {
     }
 })
 app.put('/posts', async (req, res) => {
-    console.log(req.body);
+    console.log(req);
     try {
         console.log(`PATCH /posts/`)
-        const { data } = await db.patch(`/posts/${req.body.postId}`, req.body)
+        const { data } = await db.patch(`/posts/${req.body.id}`, req.body)
         // res.send({data})
         console.log(req.body);
         res.status("200").json(data).end()
@@ -68,20 +68,19 @@ app.put('/posts', async (req, res) => {
         res.status("400").json(err).end()
     }
 })
-app.delete('/posts/:id', async (req, res) => {
+app.delete('/posts', async (req, res) => {
     try {
-        console.log(`DELETE /posts/${req.params.id}`)
-        const { data } = await db.get(`/posts/${req.params.id}`)
-        console.log(req);
+        console.log(`DELETE /posts/${req.body.postId}`)
+        const { data } = await db.delete(`/posts/${req.body.postId}`)
         
-        let [filteredData] =data.filter((datum) => {
-            return datum.id != `${req.params.id}`
-        })
-        // // console.log(filteredData);
-        // // await db.delete('/posts')
-        const { finalData } = await db.patch(`/posts`, filteredData )
+        // let [filteredData] =data.filter((datum) => {
+        //     return datum.id != `${req.params.id}`
+        // })
+        // // // console.log(filteredData);
+        // // // await db.delete('/posts')
+        // const { finalData } = await db.patch(`/posts`, filteredData )
         // res.send(finalData)
-        res.status("201").json({deletedData: finalData}).end()
+        res.status("201").json({deletedData: data}).end()
         // await db.delete(`/posts?id=${req.params.id}`)
         // const { data } = await db.get(`/posts?id=${req.params.id}`)
         // console.log(data);

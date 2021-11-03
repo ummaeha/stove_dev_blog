@@ -45,21 +45,27 @@ const Post = (props) => {
 
     const saveChanges = (e, editMode) => {
         setEditMode(editMode)
+
         if(!editMode) { //true
-
-            const postInitalData = {
-                // userId: `${localStorage.getItem("id")}`,
-                title: `${textTitle}`,
-                contents: `${textContent}`,
-                timeStamp: getDateString(),
-                postId: `${postIdFromUrl}`
-                // id autoincrease
+            if(textTitle == "" || textContent == "") {
+                alert("제목과 내용을 모두 작성하셔야 글 수정이 가능합니다!");
+                return setEditMode(true);
             }
-
-            server
-            .put(`/posts`, { ...postInitalData})
-            .then(res => res)
-            .then(data => setPostIdFromUrl(data.data))
+            else {
+                const postInitalData = {
+                    // userId: `${localStorage.getItem("id")}`,
+                    title: `${textTitle}`,
+                    contents: `${textContent}`,
+                    timeStamp: getDateString(),
+                    id: `${postIdFromUrl}`
+                    // id autoincrease
+                }
+    
+                server
+                .put(`/posts`, { ...postInitalData})
+                .then(res => res)
+                .then(data => setPostIdFromUrl(data.data))
+            }
         }
     }
     return (
