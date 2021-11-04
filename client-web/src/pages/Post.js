@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import server from "../apis/server"
-import axios from 'axios'
 import BodyText from "../components/Typography/BodyText"
 import Thread from './Thread';
 import { getDateString, getYear, getMonthIndex, getDate } from "../components/Date/getDateString"
@@ -16,7 +15,7 @@ const Post = (props) => {
 
     useEffect(() => {
         server
-        .get(`/posts/${postIdFromUrl}`) //  TO DO: key value로 받으면 되겠다. -> 고민해보기
+        .get(`/posts/${postIdFromUrl}`)
         .then(res => res)
         .then(data => setPostDetailData(data.data.postDetail[0]))
 
@@ -63,30 +62,7 @@ const Post = (props) => {
     }
 
     const deletePost = (e, postId) => {
-        // e.preventDefault();
-        // // console.log(postId);
-        // const url = `/posts`
-        // const deleteDate = {
-        //     id: `${postId}`
-        // }
-        // server
-        // .delete(url)
-        // .then(res => res)
-        // .then(data => {
-        //     const del = data.data.filter((datum) => {
-        //         return datum.id != postId
-        //     })
-        // })
-        // .then(() => {
-        //     history.push("/");	//history를 이용해 홈으로 라우팅
-        // });
-
-        // server
-        // .get(`/posts`)
-        // .then(res => res)
-        // .then(data => setPosts())
-        // .then(data => setPosts(data.data))
-
+        // DOING : 게시글 삭제기능 (개별 포스트에서 시도중)
     }
     return (
         <div>

@@ -32,3 +32,23 @@ npm start
 
 4001: JSON-server, db.json
 
+
+# client-web 디렉토리 및 페이지
+
+- 디렉토리
+
+client-web/pages : 페이지들이 저장되어있는 디렉토리
+
+- 페이지와 주요 컴포넌트
+
+1. *Main.js* : 메인페이지
+
+2. *Create.js* : 새로운 글을 생성하는 페이지
+
+3. *Post.js* : 개별 게시글의 상세내용 및 댓글이 있는 페이지
+
+4. *Thread.js* : 댓글을 보여주는 컴포넌트 ( Post.js 의 자식컴포넌트 )
+
+5. *ThreadWrite.js* : 새 댓글을 입력하는 컴포넌트 ( Thread.js의 자식 컴포넌트 )
+
+

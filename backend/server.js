@@ -3,7 +3,6 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const db = require('./dbServer')
-// const posts = require("./posts")
 const port = process.env.PORT || 4000;
 
 app.use(cors());
@@ -24,6 +23,7 @@ app.use(express.urlencoded({
     extended: true
 }))
 
+// 전체 post들을 불러옴
 app.get('/posts', async(req,res) => {
     try {
         console.log(`GET /posts`)
@@ -34,6 +34,8 @@ app.get('/posts', async(req,res) => {
         res.status("400").json(err).end()
     }
 })
+
+// post들을 id에 따라 불러옴
 app.get('/posts/:id', async(req,res) => {
     try {
         console.log(`GET /posts/${req.params.id}`)
@@ -44,10 +46,12 @@ app.get('/posts/:id', async(req,res) => {
         res.status("400").json(err).end()
     }
 })
+
+// 새 글 생성 (by, Add POST 버튼)
 app.post('/posts', async (req, res) => {
     try {
         console.log("POST /posts")
-        console.log(req.body);
+        // console.log(req.body);
         const {data} = await db.post("/posts", req.body)
         res.status("201").json({newPostdata: data}).end() // 201 == created
     } catch(err) {
@@ -55,69 +59,44 @@ app.post('/posts', async (req, res) => {
         res.status("400").json(err).end()
     }
 })
+
+// 글 쓰기 수정기능
 app.put('/posts', async (req, res) => {
     // console.log(req.body);
     try {
         console.log(`PATCH /posts/${req.body.id}`)
         const { data } = await db.patch(`/posts/${req.body.id}`, req.body)
         // res.send({data})
-        console.log(data);
+        // console.log(data);
         res.status("200").json(data).end()
     } catch(err) {
         console.log(err.message)
         res.status("400").json(err).end()
     }
 })
-app.delete('/posts', async (req, res) => {
-    // console.log(req.body);
-    try {
-        console.log(`DELETE /posts`)
-        const {data} = await db.get(`/posts`)
 
-        console.log("삭제 요청 성공");
-        res.status("200").json(data).end()
-
-    } catch(err) {
-        console.log(err.message)
-        res.status("400").json(err).end()
-    }
-})
+// TO DO: (미완성) 삭제 기능
+// => db에 delete메소드가 작동하지 않아서, 1. Posts들을 get해오고, 2. postid가 동일하지 않은 데이터만 filter 해서 3. 다시 업데이트하는 방식을 시도해봤으나 잘 안됨.
 
 // app.delete('/posts/:postId', async (req, res) => {
 //     // console.log(req.body);
 //     try {
-//         console.log(`DELETE /posts`)
-//         const {data} = await db.get(`/posts/${req.params.postId}`)
-//         const {data} = await db.delete(`/posts/${req.params.postId}`)
-
-//         // const {data} = await db.delete(`/posts?id=${req.params.postid}`)
-//         // const {data} = await db.delete(`/posts/4`)
-
-//         res.status("200").json(data).end()
+//         console.log(`DELETE /posts/${req.params.postId}`)
+//         const {data} = await db.get(`/posts`)
+//         // console.log(data);
+//         await db.delete()
+//         const newData = data.filter((datum) => {
+//             return datum.id != `${req.params.postId}`
+//         })
+//         res.status("200").json(newData).end()
 
 //     } catch(err) {
 //         console.log(err.message)
 //         res.status("400").json(err).end()
 //     }
 // })
-// server.delete('/posts/:id', (req, res) => {
-//     // lowdb를 사용해서 db.json에서 completed: true인 todo를 제거
-//     lowdb.get("/posts").remove({id: `${req.params.id}`}).write();
-  
-//     // todos를 응답
-//     res.send(lowdb.get("todos").value());
-//   });
-// app.put('/posts/:id', async (req, res) => {
-//     try {
-//         console.log(`PATCH /posts/${req.params.id}`)
-//         console.log(req.body);
-//         // const {data} = await db.post("/posts", req.body)
-//         // res.status("201").json({newPostdata: data}).end() // 201 == created
-//     } catch(err) {
-//         console.log(err.message)
-//         res.status("400").json(err).end()
-//     }
-// })
+
+// postid와 맞는 댓글을 불러옴
 app.get('/thread/:id', async(req,res) => {
     try {
         console.log(`GET /thread/${req.params.id}`)
@@ -125,9 +104,11 @@ app.get('/thread/:id', async(req,res) => {
         res.status("201").json({threadData: data}).end() 
     } catch (err) {
         console.log(err)
-        res.status("400").json(err).end()
+            res.status("400").json(err).end()
     }
 })
+
+// 새 댓글 생성하기
 app.post('/thread/:id', async(req,res) => {
     try {
         console.log(`POST /thread/${req.params.id}`)

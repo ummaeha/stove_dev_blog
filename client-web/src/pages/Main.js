@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom"
-import axios from 'axios'
 import server from "../apis/server"
 import HeaderText from "../components/Typography/HeaderText"
 import BodyText from "../components/Typography/BodyText"
@@ -16,72 +15,22 @@ const Main = (props) => {
         .then(res => res)
         .then(data => setPosts(data.data.postdata.reverse()))
     }, [])
-    // console.log(props);
-
 
     const onDeleteAll = (e, postId) => {
         e.preventDefault();
-
-        // server
-        // .delete(`/posts/${postId}`)
-        // .then(res => res)
-        // .then(data => setPosts(data))
-        // .then(() => {
-        //     history.push("/");	//history를 이용해 홈으로 라우팅
-        // });
-
-        // server
-        // .delete('/posts')
-        // .then(res => res)
-        // .then(data => setPosts(data)) 
+        // TO DO: 전체삭제 기능 구현 -> (성공하면) -> 선택삭제 구현
     }
+
     const deletePost = (e, postId) => {
         e.preventDefault();
-        const url = `/posts`
+        // DOING: 메인페이지에서 게시글별 삭제기능을 시도중
+
+        const url = `/posts/${postId}`
 
         server
         .delete(url)
         .then(res => res)
-        .then(data => {
-            const del = data.data.filter((datum) => {
-                return datum.id != postId
-            })
-            setPosts(del.reverse())
-
-        })
-        // console.log(postId);
-
-        // e.preventDefault();
-        // console.log(postId);
-        // const deleteDate = {
-        //     id: `${postId}`
-        // }
-        // server
-        // .delete(`/posts`,{
-        //     data: { // 서버에서 req.body.{} 로 확인할 수 있다.
-        //         id: `${postId}`
-        //     }})
-        // .then(res => res)
-        // .then(data => setPosts(data.data))
-        // server
-        // .delete(`/posts/${postId}`)
-        // .then(res => res)
-
-        // .then(data => setPosts(data))
-        // .then(data => setPosts(data.data.deletedData))
-        // window
-        // .fetch(`http://localhost:4000/posts/${postId}`,  {
-        //     method: "DELETE"
-        //   })
-        // .then(res => {
-        //     console.log(res.json());
-        // })
-        // .then(data => {
-        //     // console.log(data.data);
-        //     setPosts(data)
-        // })
-        // .then(data => setPosts(res.data.deletedData))
-        // console.log(e,postId);
+        .then(data => console.log(data.data))
     }
 
     return (
@@ -115,7 +64,7 @@ const Main = (props) => {
                                             <span className="post-content">{content.contents}</span>
                                         </Link>  
                                     </div>
-                                    <button onClick={(e) => deletePost(e, `${content.id}`)}>DELETE</button>
+                                    {/* <button onClick={(e) => deletePost(e, `${content.id}`)}>DELETE</button> */}
                                     </div>
                         })}
                         <hr className="hr-divider"/>

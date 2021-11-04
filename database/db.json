@@ -15,21 +15,21 @@
   ],
   "posts": [
     {
-      "userId": 1,
+      "userId": "1",
       "title": "첫 번째 포스트",
       "contents": "오늘은 자바스크립트 ES6+에 대해서 포스팅 해보도록 하겠습니다.",
       "timeStamp": "2021.11.04  2:19",
       "id": 1
     },
     {
-      "userId": 1,
+      "userId": "1",
       "title": "두 번째 포스트",
       "contents": "오늘은 nodejs에 대해서 포스팅 해보도록 하겠습니다.",
       "timeStamp": "2021.11.04  2:19",
       "id": 2
     },
     {
-      "userId": 1,
+      "userId": "1",
       "title": "세 번째 포스트",
       "contents": "애플워치 5 GPS 모델 가격 : 택스 미포함 299 달러 ( 포함하면 330달러 정도 ! 원래는 399달러인데, 할인할때 샀다. 299까지는 종종 할인함 ) 장점 5가지 1) 일정관리 - 보통 시리페이스 사용  시리페이스 장점 : 완벽한 일정관리 가능 애플 캘린더와 연동되어 일정 시간, 제목, 주최자, 장소등의 정보를 제공해준다. 🍯 꿀팁 ! 애플 캘린더는 구글 계정과도 연동되기때문에, 회사 계정을 연결해놓으면 회의등 일정을 잊지않고 참여할 수 있다.",
       "timeStamp": "2021.11.04  2:19",
@@ -115,9 +115,23 @@
     {
       "userId": "1",
       "title": "스토브 데브 캠프",
-      "contents": "스마일 게이트 합격 가즈아 ㅠㅠ",
-      "timeStamp": "2021.11.05  01:28",
+      "contents": "스마일 게이트 합격 가즈아 ㅠㅠ 가zㅏ",
+      "timeStamp": "2021.11.05  04:53",
       "id": 21
+    },
+    {
+      "userId": "1",
+      "title": "글 수정",
+      "contents": "수정 수정",
+      "timeStamp": "2021.11.05  05:17",
+      "id": 22
+    },
+    {
+      "userId": "1",
+      "title": "오늘은 과제 마감일 입니다.",
+      "contents": "바로바로 11월 5일이기 때문입니다",
+      "timeStamp": "2021.11.05  05:29",
+      "id": 23
     }
   ],
   "thread": [
@@ -125,138 +139,90 @@
       "id": 1,
       "postId": 2,
       "threadContents": "댓글이에요 댓글댓글 replaceAll은 언제나오나요?",
-      "timeStamp": ""
+      "timeStamp": "2021.11.01  10:02"
     },
     {
       "id": 2,
       "postId": 2,
       "threadContents": "화살표함수에요,,,! 스코프가 달라졌어요",
-      "timeStamp": ""
+      "timeStamp": "2021.11.01  10:03"
     },
     {
       "id": 3,
       "postId": 3,
       "threadContents": "애플워치 7이 나온다네요! 베젤이 엄청 얇아졌대요!!",
-      "timeStamp": ""
+      "timeStamp": "2021.11.01  10:04"
     },
     {
       "postId": "3",
       "threadContents": "댓글을 한 번 달아보겠습니다.",
-      "timeStamp": "20211102",
+      "timeStamp": "2021.11.01  10:05",
       "id": 4
-    },
-    {
-      "postId": "3",
-      "threadContents": "<Link to={'/'}",
-      "timeStamp": "20211102",
-      "id": 5
-    },
-    {
-      "postId": "3",
-      "threadContents": "<Link to={'/'}",
-      "timeStamp": "20211102",
-      "id": 6
-    },
-    {
-      "postId": "3",
-      "threadContents": "<Link to={'/'}",
-      "timeStamp": "20211102",
-      "id": 7
-    },
-    {
-      "postId": "3",
-      "threadContents": "<Link to={'/'}",
-      "timeStamp": "20211102",
-      "id": 8
-    },
-    {
-      "postId": "3",
-      "threadContents": "<Link to={'/'}",
-      "timeStamp": "20211102",
-      "id": 9
-    },
-    {
-      "postId": "3",
-      "threadContents": "<Link to={'/'}",
-      "timeStamp": "20211102",
-      "id": 10
-    },
-    {
-      "postId": "3",
-      "threadContents": "<Link to={'/'}",
-      "timeStamp": "20211102",
-      "id": 11
-    },
-    {
-      "postId": "3",
-      "threadContents": "<Link to={'/'}",
-      "timeStamp": "20211102",
-      "id": 12
     },
     {
       "postId": "12",
       "threadContents": "제가 글을 한 번 써보겠습니다.",
-      "timeStamp": "20211102",
+      "timeStamp": "2021.11.01  10:06",
       "id": 13
     },
     {
       "postId": "12",
       "threadContents": "어머나 글이 아니라 댓글이었네요",
-      "timeStamp": "20211102",
+      "timeStamp": "2021.11.01  10:07",
       "id": 14
     },
     {
       "postId": "12",
       "threadContents": "댓글 댓 글글 부모 리랜더링 가즈아!\n",
-      "timeStamp": "20211102",
+      "timeStamp": "2021.11.01  10:08",
       "id": 15
     },
     {
       "postId": "12",
       "threadContents": "리랜더링 제발 ㅠㅠ",
-      "timeStamp": "20211102",
+      "timeStamp": "2021.11.01  10:09",
       "id": 16
     },
     {
       "postId": "12",
       "threadContents": "나의 소중한 댓글\n",
-      "timeStamp": "20211102",
+      "timeStamp": "2021.11.01  10:10",
       "id": 17
     },
     {
       "postId": "12",
       "threadContents": "나의 소중한 댓글\n",
-      "timeStamp": "20211102",
+      "timeStamp": "2021.11.01  10:20",
       "id": 18
     },
     {
       "postId": "12",
       "threadContents": "댓글글\n",
-      "timeStamp": "20211102",
+      "timeStamp": "2021.11.01  10:50",
       "id": 19
     },
     {
       "postId": "12",
       "threadContents": "댓글이 왜 바로 안될까",
-      "timeStamp": "20211102",
+      "timeStamp": "2021.11.01  11:05",
       "id": 20
     },
     {
       "postId": "12",
       "threadContents": "댓글이 왜 바로 안될까",
-      "timeStamp": "20211102",
+      "timeStamp": "2021.11.01  11:10",
       "id": 21
     },
     {
       "postId": "12",
       "threadContents": "댓글 바로\n",
-      "timeStamp": "20211102",
+      "timeStamp": "2021.11.01  11:59",
       "id": 22
     },
     {
       "postId": "12",
       "threadContents": "날짜 입력 수정",
-      "timeStamp": "2021.11.02",
+      "timeStamp": "2021.11.01  23:59",
       "id": 23
     },
     {
@@ -280,7 +246,7 @@
     {
       "postId": "7",
       "threadContents": "쓰레드도 한 번 써보겠습니다.",
-      "timeStamp": "2021.11.03  0:23",
+      "timeStamp": "2021.11.03  02:23",
       "id": 27
     },
     {
@@ -366,6 +332,24 @@
       "threadContents": "저도 합격하고싶어요!! 같이 만나요!!",
       "timeStamp": "2021.11.05  01:28",
       "id": 41
+    },
+    {
+      "postId": "3",
+      "threadContents": "새 댓글을 작성합니다. 이 댓글은 아이디에 해당하는 PostId는 3일거에요",
+      "timeStamp": "2021.11.05  05:25",
+      "id": 42
+    },
+    {
+      "postId": "22",
+      "threadContents": "삭제삭제",
+      "timeStamp": "2021.11.05  05:29",
+      "id": 43
+    },
+    {
+      "postId": "22",
+      "threadContents": "**②필수 SPEC:**\\n\\n- 메인 페이지\\n- 글 쓰기 수정 기능\\n- 글 목록 삭제 기능\\n- 댓글 기능\\n\\n**③옵션 SPEC:**\\n\\n- UI 디자인\\n- 관리자 도구\\n- Trackback\\n- RSS\\n\\n**2. 과제 제출 안내**\\n\\n**①제출 기한: 2021. 11. 5 (금) 낮 12시까지**\\n\\n**②필수 제출 서류:**\\n\\n- 과제 산출물 접속 링크\\n- 결과값 캡처 이미지 파일\\n\\n**③제출 방법:**\\n\\n- 개발된 과제 산출물은 github 등의 공개 저장소에 업로드하신 후 CAREERS내 마이페이지에 접속링크를 입력해주세요.\\n- 개발된 결과에 대해 캡처한 이미지 파일은 마이페이지에 첨부파일 형태로 업로드해주세요.\\n\\n(첨부파일명: 성함_사전 과제)",
+      "timeStamp": "2021.11.05  05:29",
+      "id": 44
     }
   ]
 }
