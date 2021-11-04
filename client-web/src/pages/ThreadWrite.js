@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router'
 import server from '../apis/server'
 import { getDateString, getYear, getMonthIndex, getDate } from "../components/Date/getDateString"
 import './ThreadWrite.css'
@@ -8,6 +9,7 @@ import './ThreadWrite.css'
 const ThreadWrite = (props) => {
     const [newThread, setNewThread] = useState("")
     const postId = props.postId
+    const history = useHistory()
 
     const onsubmitThread = (e) => {
         e.preventDefault();
@@ -29,6 +31,7 @@ const ThreadWrite = (props) => {
         .post(`/thread/${postId}`, threadInitalData)
         .then(res => res)
         .then(data => setNewThread(data.data.newThreadData))
+        .then(() => {window.location.replace(`/posts/${postId}`)})
     }
         
     return (

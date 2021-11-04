@@ -17,8 +17,18 @@ const Main = (props) => {
         .then(data => setPosts(data.data.postdata.reverse()))
     }, [])
     // console.log(props);
-    const onDeleteAll = (e) => {
-        // e.preventDefault();
+
+
+    const onDeleteAll = (e, postId) => {
+        e.preventDefault();
+
+        // server
+        // .delete(`/posts/${postId}`)
+        // .then(res => res)
+        // .then(data => setPosts(data))
+        // .then(() => {
+        //     history.push("/");	//history를 이용해 홈으로 라우팅
+        // });
 
         // server
         // .delete('/posts')
@@ -27,13 +37,38 @@ const Main = (props) => {
     }
     const deletePost = (e, postId) => {
         e.preventDefault();
-        const deleteDate = {
-            id: `${postId}`
-        }
+        const url = `/posts`
+
         server
-        .delete(`/posts`, {body:{...deleteDate}})
+        .delete(url)
         .then(res => res)
-        .then(data => setPosts(data.data.deletedData))
+        .then(data => {
+            const del = data.data.filter((datum) => {
+                return datum.id != postId
+            })
+            setPosts(del.reverse())
+
+        })
+        // console.log(postId);
+
+        // e.preventDefault();
+        // console.log(postId);
+        // const deleteDate = {
+        //     id: `${postId}`
+        // }
+        // server
+        // .delete(`/posts`,{
+        //     data: { // 서버에서 req.body.{} 로 확인할 수 있다.
+        //         id: `${postId}`
+        //     }})
+        // .then(res => res)
+        // .then(data => setPosts(data.data))
+        // server
+        // .delete(`/posts/${postId}`)
+        // .then(res => res)
+
+        // .then(data => setPosts(data))
+        // .then(data => setPosts(data.data.deletedData))
         // window
         // .fetch(`http://localhost:4000/posts/${postId}`,  {
         //     method: "DELETE"
@@ -63,13 +98,14 @@ const Main = (props) => {
                     <article className="wrap-post-items">
                         
                         <div className="align-bodytext">
-                            <BodyText fontsize={20} text={`전체글(${posts.length})`}/>
+                            <BodyText fontsize={20} text={`전체글(${posts.length?posts.length:0})`}/>
                             <div>
                                 <Link to={'posts'} className="common-post-btn"> + Add POST</Link>
-                                <Link to={''} className="common-post-btn" onClick={(e) => onDeleteAll(e)}> - DELETE POST</Link>
+                                <Link to={''} className="common-post-btn" onClick={(e) => onDeleteAll(e, 14)}> - DELETE POST</Link>
                             </div>
                         </div>
-                        {posts && posts.map((content, i) => {
+                        {posts.length && posts.map((content, i) => {
+                            // if(content.title == "") return;
                             return <div key={i}>
                                         <hr className="hr-divider"/>
                                         <div className="wrap-post-box">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import server from "../apis/server"
+import axios from 'axios'
 import BodyText from "../components/Typography/BodyText"
 import Thread from './Thread';
 import { getDateString, getYear, getMonthIndex, getDate } from "../components/Date/getDateString"
@@ -59,13 +60,39 @@ const Post = (props) => {
                 .then(res => res)
             }
         }
+    }
+
+    const deletePost = (e, postId) => {
+        // e.preventDefault();
+        // // console.log(postId);
+        // const url = `/posts`
+        // const deleteDate = {
+        //     id: `${postId}`
+        // }
+        // server
+        // .delete(url)
+        // .then(res => res)
+        // .then(data => {
+        //     const del = data.data.filter((datum) => {
+        //         return datum.id != postId
+        //     })
+        // })
+        // .then(() => {
+        //     history.push("/");	//history를 이용해 홈으로 라우팅
+        // });
+
+        // server
+        // .get(`/posts`)
+        // .then(res => res)
+        // .then(data => setPosts())
+        // .then(data => setPosts(data.data))
 
     }
     return (
         <div>
             <section className="wrap-real-post common-left">
                 <div className="wrap-post-info">
-                    <div>
+                    <div className="title-info">
                         {editMode ? 
                         <input type="text" value={`${textTitle}`} onChange={(e) => handleTitleChange(e)} />
                         : <h3 className="header-font-style titleText">{textTitle == '' ? postDetailData.title : textTitle}</h3>
@@ -73,7 +100,10 @@ const Post = (props) => {
                     </div>
                     <div className="post-info">
                         {postDetailData ? <span>{postDetailData.timeStamp}</span> : <span>NO TIMESTAMP</span>}
-                        <button onClick={(e) => saveChanges(e,!editMode)}>{editMode ? 'SAVE POST' : 'EDIT POST'}</button>
+                        <div>
+                            <button onClick={(e) => saveChanges(e,!editMode)} className="edit-save-btn">{editMode ? 'SAVE POST' : 'EDIT POST'}</button>
+                            <button onClick={(e) => deletePost(e, `${postDetailData.id}`)}>DELETE</button>
+                        </div>
                     </div>
                 </div>
                 <hr className="hr-divider"/>

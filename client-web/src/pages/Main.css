@@ -36,7 +36,7 @@
 .nav-area {
     width: 30vw;
     height: 100vh;
-    background-color: black;
+    /* background-color: black; */
 }
 .wrap-main-area {
     display: flex;

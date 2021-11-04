@@ -56,7 +56,7 @@ app.post('/posts', async (req, res) => {
     }
 })
 app.put('/posts', async (req, res) => {
-    // console.log(req);
+    // console.log(req.body);
     try {
         console.log(`PATCH /posts/${req.body.id}`)
         const { data } = await db.patch(`/posts/${req.body.id}`, req.body)
@@ -69,29 +69,37 @@ app.put('/posts', async (req, res) => {
     }
 })
 app.delete('/posts', async (req, res) => {
+    // console.log(req.body);
     try {
-        console.log(`DELETE /posts/${req.body.id}`)
-        await db.delete(`/posts/${req.body.id}`)
-        const { data } = await db.get('/posts')
-        // let [filteredData] =data.filter((datum) => {
-        //     return datum.id != `${req.params.id}`
-        // })
-        // // // console.log(filteredData);
-        // // // await db.delete('/posts')
-        // const { finalData } = await db.patch(`/posts`, filteredData )
-        // res.send(finalData)
-        res.status("201").json({deletedData: data}).end()
-        // await db.delete(`/posts?id=${req.params.id}`)
-        // const { data } = await db.get(`/posts?id=${req.params.id}`)
-        // console.log(data);
-        // res.status("201").json({deletedData: data}).end() // 201 == created
-        // res.send([{title:'dummy'},{title:'dummy2'}])
+        console.log(`DELETE /posts`)
+        const {data} = await db.get(`/posts`)
+
+        console.log("삭제 요청 성공");
+        res.status("200").json(data).end()
+
     } catch(err) {
         console.log(err.message)
         res.status("400").json(err).end()
     }
 })
 
+// app.delete('/posts/:postId', async (req, res) => {
+//     // console.log(req.body);
+//     try {
+//         console.log(`DELETE /posts`)
+//         const {data} = await db.get(`/posts/${req.params.postId}`)
+//         const {data} = await db.delete(`/posts/${req.params.postId}`)
+
+//         // const {data} = await db.delete(`/posts?id=${req.params.postid}`)
+//         // const {data} = await db.delete(`/posts/4`)
+
+//         res.status("200").json(data).end()
+
+//     } catch(err) {
+//         console.log(err.message)
+//         res.status("400").json(err).end()
+//     }
+// })
 // server.delete('/posts/:id', (req, res) => {
 //     // lowdb를 사용해서 db.json에서 completed: true인 todo를 제거
 //     lowdb.get("/posts").remove({id: `${req.params.id}`}).write();

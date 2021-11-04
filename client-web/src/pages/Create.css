@@ -1,0 +1,28 @@
+.wrap-title-area {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+.wrap-title-area > input{
+    width: 100%;
+    height: 30px;
+}
+.wrap-contents-area {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+.wrap-contents-area > textarea {
+    width: 100%;
+    height: 50vh;
+}
+.submit-btn {
+    padding: 8px 16px;
+    font-size: 16px;
+}
