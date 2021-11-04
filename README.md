@@ -16,6 +16,7 @@ npm start
 
 cd database
 npm install
+npm start
 
 cd client-web 
 npm install
