@@ -53,6 +53,7 @@ client-web/pages : 페이지들이 저장되어있는 디렉토리
 
 
 # 아키텍쳐
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ee72e6e5-b0fa-48ad-9cf6-184b85cfd69e/Untitled.png)
+
+![아키텍쳐](https://user-images.githubusercontent.com/48500209/140417964-d4ba67ae-c073-406f-8aed-d9d3cca2b8b0.png)
 
 
