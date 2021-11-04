@@ -52,3 +52,7 @@ client-web/pages : 페이지들이 저장되어있는 디렉토리
 5. *ThreadWrite.js* : 새 댓글을 입력하는 컴포넌트 ( Thread.js의 자식 컴포넌트 )
 
 
+# 아키텍쳐
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ee72e6e5-b0fa-48ad-9cf6-184b85cfd69e/Untitled.png)
+
+
