@@ -10,6 +10,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
+db.connect((err) => {
+    if(err) throw err;
+    console.log('Connected with MySQL2');
+    const sql = `SELECT * FROM posts`
+    db.query(sql, (err, result) => {
+        if(err) throw err;
+        console.log('user table created');
+        console.log(result);
+    })
+
+})
+
 // http://localhost:4000/ 으로 접속 시 응답메시지 출력
 app.get('/', (req, res) =>{
     res.send('연결됐는지 테스트하는중')
