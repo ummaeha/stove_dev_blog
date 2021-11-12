@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const router = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const db = require('../config/db')
@@ -13,12 +12,12 @@ app.use(cors());
 db.connect((err) => {
     if(err) throw err;
     console.log('Connected with MySQL2');
-    const sql = `SELECT * FROM posts`
-    db.query(sql, (err, result) => {
-        if(err) throw err;
-        console.log('user table created');
-        console.log(result);
-    })
+    // const sql = `SELECT * FROM posts`
+    // db.query(sql, (err, result) => {
+    //     if(err) throw err;
+    //     console.log('user table created');
+    //     console.log(result);
+    // })
 
 })
 
@@ -36,11 +35,12 @@ app.listen(port, ()=>{
     console.log(`Connect at http://localhost:${port}`); // '가 아닌 좌측상단의 esc버튼 밑의 `다.
 })
 
-router.get('/test', (req,res) => {
-    db.query('SELECT * FROM table1', (err, data) => {
-        if(!err) res.send({ products : data});
-        else res.send(err);
+app.get('/test', (req,res) => {
+    const sql = 'SELECT * FROM posts'
+    db.query(sql, (err, result, fields) => {
+        if(err) throw err;
+        else res.send(result);
     })
 })
  
-module.exports = router;
+module.exports = app;
