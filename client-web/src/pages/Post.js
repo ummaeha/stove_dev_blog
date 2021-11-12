@@ -75,7 +75,7 @@ const Post = (props) => {
                         }
                     </div>
                     <div className="post-info">
-                        {postDetailData ? <span>{postDetailData.timeStamp}</span> : <span>NO TIMESTAMP</span>}
+                        {postDetailData.timeStamp ? <span>{postDetailData.timeStamp.slice(0,16).replace('T',' ')}</span> : <span>NO TIMESTAMP</span>}
                         <div>
                             <button onClick={(e) => saveChanges(e,!editMode)} className="edit-save-btn">{editMode ? 'SAVE POST' : 'EDIT POST'}</button>
                             <button onClick={(e) => deletePost(e, `${postDetailData.id}`)}>DELETE</button>

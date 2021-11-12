@@ -13,7 +13,7 @@ const Main = (props) => {
         server
         .get('/posts')
         .then(res => res)
-        .then(data => setPosts(data.data.postdata.reverse()))
+        .then(data => setPosts(data.data.postData.reverse()))
     }, [])
 
     const onDeleteAll = (e, postId) => {
