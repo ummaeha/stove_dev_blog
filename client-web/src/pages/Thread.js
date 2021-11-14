@@ -19,7 +19,7 @@ const Thread = (props) => {
         <div className="common-left">
             <HeaderText text={`댓글(${threadList.length})`}/>
             {threadList && threadList.map((thread) => {
-                return <div>{thread.threadContents}  <span className="post-timestamp">|  {thread.timeStamp}  |</span>  <hr className="hr-divider"/></div>
+                return <div>{thread.threadContents}  <span className="post-timestamp">|  {thread.timeStamp.slice(0,16).replace('T',' ')}  |</span>  <hr className="hr-divider"/></div>
             })}
             {(!threadList.length) && <div className="no-thread-msg">댓글이 없습니다</div>}
 

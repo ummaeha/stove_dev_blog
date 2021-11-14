@@ -25,6 +25,7 @@ const ThreadWrite = (props) => {
         const threadInitalData = {
             postId: `${postId}`,
             threadContents: `${threadContentsData}`,
+            userId: `${localStorage.getItem("id")}`,
             timeStamp: `${dateString}`
         }
         server
