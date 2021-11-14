@@ -62,14 +62,26 @@ app.post('/posts', (req, res) => {
 
 // 글 쓰기 수정기능 (by, save post 버튼)
 app.put('/posts', (req, res) => {
-    console.log("PATCH /posts")
     const postId = req.body.id;
+    console.log(`PATCH /posts/${postId}`)
 
     const sql = `UPDATE posts SET ? WHERE id = ${postId}`
     // console.log(req.body);
     db.query(sql, req.body, (err, result) => {
         if(err) throw err;
         else res.send(`글을 수정했습니다.`)
+    })
+})
+
+//글 삭제 기능 (개별 포스에서 삭제하기)
+app.delete('/posts/:id', (req, res) => {
+    const postId = req.params.id;
+    console.log(`DELETE /posts/${postId}`);
+
+    const sql = `DELETE FROM posts WHERE id = ${postId}`
+    db.query(sql, (err, result) => {
+        if(err) throw err;
+        else res.send('글이 삭제되었습니다.')
     })
 })
 module.exports = app;

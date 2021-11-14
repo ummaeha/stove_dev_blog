@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom';
 import server from "../apis/server"
 import BodyText from "../components/Typography/BodyText"
 import Thread from './Thread';
@@ -12,6 +13,7 @@ const Post = (props) => {
     const [editMode, setEditMode] = useState(false)
     const [textTitle, setTextTitle] = useState('')
     const [textContent, setTextContent] = useState('')
+    const history = useHistory()
 
     useEffect(() => {
         server
@@ -63,6 +65,10 @@ const Post = (props) => {
 
     const deletePost = (e, postId) => {
         // DOING : 게시글 삭제기능 (개별 포스트에서 시도중)
+        server
+        .delete(`/posts/${postId}`)
+        .then(res => res)
+        .then(() => history.push("/"))
     }
     return (
         <div>
