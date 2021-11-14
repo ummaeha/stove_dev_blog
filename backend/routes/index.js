@@ -53,11 +53,23 @@ app.get('/posts/:id', (req,res) => {
 // 새 글 생성 (by, Add POST 버튼)
 app.post('/posts', (req, res) => {
     console.log("POST /posts")
-    // console.log(req.body);
     const sql = `INSERT INTO posts SET ?`
     db.query(sql, req.body, (err, result) => {
         if(err) throw err;
         else res.send('새 글을 등록 완료했습니다')
+    })
+})
+
+// 글 쓰기 수정기능 (by, save post 버튼)
+app.put('/posts', (req, res) => {
+    console.log("PATCH /posts")
+    const postId = req.body.id;
+
+    const sql = `UPDATE posts SET ? WHERE id = ${postId}`
+    // console.log(req.body);
+    db.query(sql, req.body, (err, result) => {
+        if(err) throw err;
+        else res.send(`글을 수정했습니다.`)
     })
 })
 module.exports = app;
