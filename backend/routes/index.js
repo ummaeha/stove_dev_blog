@@ -90,7 +90,18 @@ app.delete('/posts/:id', (req, res) => {
 })
 // TO DOs
 // 선택 글 삭제 기능 (모든 포스트 페이지에서 checkbox로 선택한 게시글의 id를 받아와서 선택삭제하는기능 구현하기)
+app.delete('/posts', (req, res) => {
+    // const postId = req.params.id;
+    // console.log(`DELETE /posts/${postId}`);
+    console.log(req.body);
+    const [data] = req.body
 
+    const sql = `DELETE FROM posts WHERE id in (${data})`
+    db.query(sql, (err, result) => {
+        if(err) throw err;
+        else res.send('글이 삭제되었습니다.')
+    })
+})
 // thread -  id별로 get
 app.get('/thread/:id', (req,res) => {
     const postId = req.params.id;
