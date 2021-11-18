@@ -2,10 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "routes/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js -p 4000"
+    "start": "nodemon main -p 4000"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +15,6 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "json-server": "^0.17.0",
-    "lowdb": "^3.0.0"
+    "mysql2": "^2.3.3-rc.0"
   }
 }

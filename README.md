@@ -14,10 +14,6 @@ cd backend
 npm install
 npm start
 
-cd database
-npm install
-npm start
-
 cd client-web 
 npm install
 npm start
@@ -30,7 +26,7 @@ npm start
 
 4000: Nodejs Express Backend Server
 
-4001: JSON-server, db.json
+3306: MySQL
 
 
 # client-web 디렉토리 및 페이지
@@ -54,6 +50,6 @@ client-web/pages : 페이지들이 저장되어있는 디렉토리
 
 # 아키텍쳐
 
-![아키텍쳐](https://user-images.githubusercontent.com/48500209/140417964-d4ba67ae-c073-406f-8aed-d9d3cca2b8b0.png)
+![아키텍쳐](https://user-images.githubusercontent.com/48500209/141688173-5e47c95f-1916-45bc-a42c-1e94105af9f6.png)
 
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom';
 import server from "../apis/server"
 import BodyText from "../components/Typography/BodyText"
 import Thread from './Thread';
@@ -12,6 +13,7 @@ const Post = (props) => {
     const [editMode, setEditMode] = useState(false)
     const [textTitle, setTextTitle] = useState('')
     const [textContent, setTextContent] = useState('')
+    const history = useHistory()
 
     useEffect(() => {
         server
@@ -63,6 +65,10 @@ const Post = (props) => {
 
     const deletePost = (e, postId) => {
         // DOING : 게시글 삭제기능 (개별 포스트에서 시도중)
+        server
+        .delete(`/posts/${postId}`)
+        .then(res => res)
+        .then(() => history.push("/"))
     }
     return (
         <div>
@@ -75,7 +81,7 @@ const Post = (props) => {
                         }
                     </div>
                     <div className="post-info">
-                        {postDetailData ? <span>{postDetailData.timeStamp}</span> : <span>NO TIMESTAMP</span>}
+                        {postDetailData.timeStamp ? <span>{postDetailData.timeStamp.slice(0,16).replace('T',' ')}</span> : <span>NO TIMESTAMP</span>}
                         <div>
                             <button onClick={(e) => saveChanges(e,!editMode)} className="edit-save-btn">{editMode ? 'SAVE POST' : 'EDIT POST'}</button>
                             <button onClick={(e) => deletePost(e, `${postDetailData.id}`)}>DELETE</button>
